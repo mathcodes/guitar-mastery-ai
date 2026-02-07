@@ -1,0 +1,196 @@
+[
+  {
+    "name": "Alternate Picking",
+    "category": "picking",
+    "subcategory": "alternate",
+    "description": "Alternate picking is the foundation of efficient right-hand technique. It involves strictly alternating between downstrokes and upstrokes, regardless of string changes. This produces even, articulate notes and is essential for fast single-note passages.",
+    "instructions": "1. Hold the pick between your thumb and index finger with a relaxed grip\n2. Start with a downstroke on any open string\n3. Follow immediately with an upstroke\n4. Keep the motion small — movement should come from the wrist, not the forearm\n5. Practice on a single string first at a slow tempo with a metronome\n6. When comfortable, practice crossing strings while maintaining strict alternation\n7. Use a metronome starting at 60 BPM, quarter notes, and gradually increase speed\n8. CRITICAL: Do not sacrifice evenness for speed. Both downstrokes and upstrokes should sound identical in volume and tone.",
+    "common_errors": [
+      "Using too much arm movement instead of wrist",
+      "Gripping the pick too tightly, causing tension",
+      "Losing the alternating pattern when crossing strings",
+      "Rushing — increasing speed before the current tempo is clean",
+      "Downstrokes louder than upstrokes (or vice versa)"
+    ],
+    "tips": [
+      "Record yourself and listen back — you'll hear unevenness you don't notice while playing",
+      "Practice with a slightly thicker pick (0.88-1.0mm) for more control",
+      "Focus on relaxation — tension is the enemy of speed",
+      "The 'inside picking' vs 'outside picking' distinction matters for string crossing efficiency",
+      "Watch Troy Grady's 'Cracking the Code' series for deep analysis of picking mechanics"
+    ],
+    "exercises": [
+      "Single string: 1-2-3-4 chromatic pattern, quarter notes → eighth notes → triplets → sixteenths",
+      "Two-string: 1-2-3-4 on low E, then 1-2-3-4 on A string, maintaining strict alternation",
+      "Scale runs: Major scale in one position, strict alternate picking, with metronome",
+      "Paul Gilbert string-skipping exercise: alternate between 1st and 3rd strings"
+    ],
+    "difficulty": 1,
+    "prerequisites": [],
+    "related_techniques": ["Economy Picking", "Sweep Picking", "Tremolo Picking"],
+    "famous_practitioners": ["Al Di Meola", "Paul Gilbert", "John McLaughlin", "Pat Metheny"],
+    "tags": ["essential", "beginner", "right-hand", "foundation"]
+  },
+  {
+    "name": "Legato Technique (Hammer-ons & Pull-offs)",
+    "category": "fretting",
+    "subcategory": "legato",
+    "description": "Legato technique uses hammer-ons and pull-offs to sound notes without picking each one, creating a smooth, flowing, connected sound. The fretting hand does the work, allowing for rapid, fluid lines that are physically different from picked passages.",
+    "instructions": "**Hammer-ons:**\n1. Pick a note normally\n2. 'Hammer' another finger onto a higher fret on the same string with enough force to sound the note clearly\n3. The hammer should be quick and precise — think of it as 'snapping' the finger down\n4. The hammered note should be as loud as the picked note\n\n**Pull-offs:**\n1. Fret two notes on the same string (e.g., index on 5th fret, ring on 7th fret)\n2. Pick the higher note\n3. Pull the higher finger slightly downward (toward the floor) as you lift it, 'plucking' the string\n4. The lower note should ring clearly\n\n**Combined:**\nLink hammer-ons and pull-offs in sequences (e.g., pick once, then hammer-pull-hammer-pull) for extended legato passages.",
+    "common_errors": [
+      "Hammer-ons too weak — the hammered note is quieter than the picked note",
+      "Pull-offs straight up instead of slightly downward — the note doesn't sound",
+      "Uneven rhythm between hammered and pulled notes",
+      "Neglecting left-hand pinky for hammer-ons (it needs to be strong too)",
+      "String noise from unused strings not being muted"
+    ],
+    "tips": [
+      "Allan Holdsworth was the master of legato — study his lines for inspiration",
+      "Practice hammer-ons from nowhere (no picked note) to build finger strength",
+      "Keep unused fingers close to the fretboard — economy of motion",
+      "Mute unused strings with the underside of your fretting fingers or your picking hand",
+      "Legato + occasional pick attack creates dynamic contrast that sounds musical"
+    ],
+    "exercises": [
+      "Trills: Rapidly alternate between two frets (e.g., 5-7-5-7) using only hammer-ons and pull-offs",
+      "1-2-3-4 chromatic legato: Pick only the first note of each string, hammer the rest",
+      "Three-note-per-string scale patterns with one pick per string",
+      "Holdsworth-style position shifts: legato across multiple positions"
+    ],
+    "difficulty": 2,
+    "prerequisites": ["Basic fretting technique"],
+    "related_techniques": ["Tapping", "Slide Technique", "Trills"],
+    "famous_practitioners": ["Allan Holdsworth", "Joe Satriani", "Brett Garsed", "Shawn Lane"],
+    "tags": ["essential", "fretting", "left-hand", "smooth"]
+  },
+  {
+    "name": "Chord Melody",
+    "category": "jazz_technique",
+    "subcategory": "chord_melody",
+    "description": "Chord melody is the art of playing the melody, harmony, and bass simultaneously on a single guitar. It transforms the guitar into a self-contained ensemble. Mastered by Joe Pass, Ted Greene, and Lenny Breau, chord melody is considered the pinnacle of solo jazz guitar.",
+    "instructions": "1. **Start with the melody**: Learn the melody of a standard (start with something simple like 'Autumn Leaves')\n2. **Add bass notes**: Under each melody note, add the root or an important bass note of the current chord\n3. **Fill in harmony**: Add inner voices between the bass and melody that outline the chord\n4. **Voice leading**: Move inner voices by the smallest possible intervals between chords\n5. **Use drop 2 and drop 3 voicings**: These inversions naturally place the melody on top\n6. **Walking bass**: For more advanced arrangements, add a walking bass line between chord hits\n\n**Key Principle**: The melody MUST be the highest note (on top) so it's clearly heard. All other voices support it.",
+    "common_errors": [
+      "Inner voices overpowering the melody",
+      "Ignoring voice leading — jumping between unrelated voicings",
+      "Trying to harmonize every single melody note (leave space!)",
+      "Using only root position chords instead of inversions",
+      "Not considering the bass movement independently from the chords"
+    ],
+    "tips": [
+      "Joe Pass's 'Virtuoso' album is the ultimate chord melody textbook",
+      "Ted Greene's 'Chord Chemistry' book is essential reading",
+      "Start with just melody + bass (two voices), then add inner voices gradually",
+      "Record yourself and listen — can you clearly hear the melody above everything else?",
+      "Use a mix of close voicings and open voicings for textural variety",
+      "Rubato (flexible tempo) is your friend in solo chord melody performance"
+    ],
+    "exercises": [
+      "Harmonize 'Happy Birthday' — a simple melody everyone knows, easy to start with",
+      "Take 'Autumn Leaves' and create a drop 2 chord melody arrangement",
+      "Practice walking bass + melody on 'All The Things You Are'",
+      "Transcribe Joe Pass solos from the 'Virtuoso' album"
+    ],
+    "difficulty": 5,
+    "prerequisites": ["Drop 2 voicings", "Drop 3 voicings", "Voice leading", "Standard chord knowledge"],
+    "related_techniques": ["Voice Leading", "Walking Bass Lines", "Fingerstyle"],
+    "famous_practitioners": ["Joe Pass", "Ted Greene", "Lenny Breau", "Martin Taylor", "Tuck Andress"],
+    "tags": ["jazz", "advanced", "solo-guitar", "pinnacle"]
+  },
+  {
+    "name": "Octave Technique (Wes Montgomery Style)",
+    "category": "jazz_technique",
+    "subcategory": "octaves",
+    "description": "Playing melodies in octaves — the same note doubled an octave apart — was popularized by jazz guitar legend Wes Montgomery. The technique produces a fat, horn-like sound that cuts through a band. Wes used his thumb instead of a pick, giving his octaves a warm, rounded tone.",
+    "instructions": "1. **Basic octave shape (strings 6&4)**: Fret a note on the 6th string with your index finger. The octave is 2 frets higher on the 4th string (fret with ring finger or pinky)\n2. **Mute the 5th string**: Lightly touch the 5th string with the underside of your index finger to mute it\n3. **Strum through all three strings**: The muted middle string is silent, but strumming through it feels natural and keeps rhythm steady\n4. **Adjacent string pairs**: The same concept works on strings 5&3, 4&2, and 3&1 (3&1 shape is 3 frets apart, not 2)\n5. **With thumb (Wes style)**: Use the fleshy part of the thumb for a warm tone\n6. **With pick**: Strum through with the pick for a brighter, more articulate sound\n7. **Play melodies**: Once comfortable with the shapes, play scale patterns, melodies, and solos entirely in octaves",
+    "common_errors": [
+      "Not muting the middle string properly — it rings and muddies the sound",
+      "Sliding the octave shape instead of cleanly shifting positions",
+      "Tension in the fretting hand from stretching",
+      "Losing the rhythmic feel by focusing too much on accuracy",
+      "Forgetting that the 3&1 string pair uses a 3-fret gap, not 2"
+    ],
+    "tips": [
+      "Listen to Wes Montgomery's 'Four on Six' for the definitive octave sound",
+      "George Benson also uses octaves extensively — compare his picked octaves to Wes's thumb",
+      "Octaves are great for building a solo — start with single notes, move to octaves for the 'B section', then chords for the climax (Wes's signature approach)",
+      "Practice chromatic octave runs to build position-shifting fluency",
+      "When using a pick, angle it slightly so you're not hitting the muted string too hard"
+    ],
+    "exercises": [
+      "Chromatic octaves: Play every fret up the neck on the 6&4 string pair",
+      "Major scale in octaves: Play a one-octave major scale using the octave shape",
+      "Melody in octaves: Play 'Autumn Leaves' melody entirely in octaves",
+      "Wes Montgomery transcription: Learn the octave section of 'Four on Six'"
+    ],
+    "difficulty": 3,
+    "prerequisites": ["Basic chord fretting", "String muting awareness"],
+    "related_techniques": ["Chord Melody", "Thumb Picking", "String Muting"],
+    "famous_practitioners": ["Wes Montgomery", "George Benson", "Pat Martino", "Emily Remler"],
+    "tags": ["jazz", "essential", "wes-montgomery", "octaves"]
+  },
+  {
+    "name": "Guide Tone Soloing",
+    "category": "improvisation",
+    "subcategory": "guide_tones",
+    "description": "Guide tones are the 3rd and 7th of each chord — the notes that define the chord quality (major, minor, dominant). Guide tone soloing means connecting these essential notes with smooth voice leading across a chord progression, creating lines that clearly outline the harmony even without accompaniment.",
+    "instructions": "1. **Identify guide tones**: For each chord in a progression, find the 3rd and 7th\n   - Cmaj7: E (3rd) and B (7th)\n   - Dm7: F (3rd) and C (7th)\n   - G7: B (3rd) and F (7th)\n2. **Connect by half or whole step**: The 7th of one chord typically resolves to the 3rd of the next (and vice versa). In a ii-V-I in C:\n   - Dm7 → G7: F (b7 of Dm7) resolves to B (3 of G7) — or C (b3) to B (3)\n   - G7 → Cmaj7: B (3 of G7) resolves to C (root) and F (b7) resolves to E (3)\n3. **Play just guide tone lines**: Pick one note per chord, connecting smoothly\n4. **Embellish**: Once the guide tone skeleton is solid, add passing tones, approach notes, and rhythmic variation\n5. **Apply to standards**: Practice over 'Autumn Leaves', 'All The Things You Are', and blues",
+    "common_errors": [
+      "Not knowing the 3rd and 7th of every common chord type by heart",
+      "Making large leaps instead of smooth step-wise connections",
+      "Playing guide tones mechanically without musical phrasing",
+      "Forgetting that the 3rd → 7th resolution is the core motion of jazz harmony",
+      "Not practicing guide tones in multiple positions on the fretboard"
+    ],
+    "tips": [
+      "This concept comes from classical counterpoint and is essential in jazz education",
+      "Guide tones make your solos sound 'inside' even with simple note choices",
+      "Practice singing guide tones while the chord progression plays — ear training gold",
+      "Once you can play smooth guide tone lines, you have a skeleton to hang all other ideas on",
+      "Barry Harris and Hal Galper's teaching methods emphasize this approach"
+    ],
+    "exercises": [
+      "ii-V-I guide tones: Play only 3rds and 7ths through the cycle of 4ths",
+      "Autumn Leaves guide tone line: Connect 3rds and 7ths through the entire form",
+      "Two-note guide tone comping: Comp through a standard using only 3rds and 7ths",
+      "Embellished guide tones: Add one passing tone between each guide tone"
+    ],
+    "difficulty": 3,
+    "prerequisites": ["Knowledge of 7th chord construction", "Basic scale knowledge"],
+    "related_techniques": ["Voice Leading", "Chord Tone Soloing", "Enclosures"],
+    "famous_practitioners": ["Jim Hall", "Bill Evans (piano, but essential study)", "Ed Bickert"],
+    "tags": ["jazz", "essential", "improvisation", "voice-leading", "theory"]
+  },
+  {
+    "name": "Breaking Out of a Rut — Plateau-Busting Strategies",
+    "category": "practice_methodology",
+    "subcategory": "plateaus",
+    "description": "Every guitarist hits plateaus — periods where progress seems to stall despite regular practice. This isn't failure; it's a normal part of skill development. The solution is not 'more practice' but 'different practice.' Plateaus signal that your current approach has delivered all it can, and you need new challenges to stimulate growth.",
+    "instructions": "**Diagnose the Rut:**\n1. Are you playing the same licks/patterns in every solo? → You need new vocabulary\n2. Are you technically stuck (can't play faster/cleaner)? → Technique needs targeted work\n3. Are your solos boring even though you 'know the theory'? → You need rhythmic/phrasing development\n4. Do you avoid certain keys/positions? → Knowledge gaps need filling\n5. Can you play but not hear what you want to play? → Ear training is the bottleneck\n\n**Strategies:**\n\n1. **Learn something completely different**: If you only play jazz, learn a blues solo. If you only play lead, work on chord melody. Novel challenges create new neural pathways.\n\n2. **Transcribe by ear**: Pick a solo you love and learn it note-by-note by ear (not tabs). This is the single most effective practice activity in jazz education.\n\n3. **Impose constraints**: Solo using only one string. Solo using only chord tones. Play a tune in an uncomfortable key. Constraints force creativity.\n\n4. **Focus on rhythm, not notes**: Clap/tap the rhythms of solos you admire. Practice playing one note with great rhythm — this alone will transform your playing.\n\n5. **Slow way down**: Practice at 50% of your comfortable tempo. You'll discover sloppiness you didn't know existed.\n\n6. **Play with better musicians**: Nothing busts a plateau like trying to keep up with players above your level.\n\n7. **Record and listen back**: Your perception while playing is unreliable. Recording reveals the truth.\n\n8. **Take a break**: Sometimes 2-3 days away from the guitar lets your brain consolidate what you've been practicing.",
+    "common_errors": [
+      "Practicing the same things the same way and expecting different results",
+      "Focusing only on speed instead of musicality",
+      "Never transcribing — learning only from books and tabs",
+      "Avoiding weaknesses instead of addressing them directly",
+      "Not using a metronome (or only using one at comfortable tempos)"
+    ],
+    "tips": [
+      "Keep a practice journal — track what you worked on and for how long",
+      "Set specific, measurable goals: 'Play Donna Lee at 200 BPM clean' not 'get better at bebop'",
+      "The 80/20 rule applies: 20% of practice activities produce 80% of results (transcribing, ear training, and playing with others are the high-value activities)",
+      "Listen 3x more than you play — your musical vocabulary is limited by what you've heard",
+      "Pat Metheny's advice: 'Always be the worst guy in every band you're in'"
+    ],
+    "exercises": [
+      "Constraint drill: Solo for 5 minutes using ONLY quarter notes and the major pentatonic scale",
+      "One-string solo: Play an entire chorus of a blues solo on a single string",
+      "Rhythmic displacement: Take a lick you know and start it on beat 2, then beat 3, then the 'and' of 1",
+      "Transcription challenge: Learn 8 bars of a Wes Montgomery solo by ear this week",
+      "Uncomfortable key challenge: Play a tune you know well in Gb or B"
+    ],
+    "difficulty": 2,
+    "prerequisites": [],
+    "related_techniques": ["Ear Training", "Transcription", "Rhythmic Development"],
+    "famous_practitioners": ["All great musicians have overcome plateaus"],
+    "tags": ["practice", "essential", "motivation", "plateaus", "methodology"]
+  }
+]

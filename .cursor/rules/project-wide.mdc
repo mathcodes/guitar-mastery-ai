@@ -1,0 +1,51 @@
+---
+description: Global project conventions for the Guitar Mastery AI multi-agent app
+globs: ["**/*.py", "**/*.html", "**/*.js", "**/*.yaml", "**/*.json"]
+alwaysApply: true
+---
+
+# Guitar Mastery AI — Project Conventions
+
+## Architecture
+- Multi-agent AI app with 4 specialized agents (Luthier, Jazz Teacher, SQL Expert, Dev/PM)
+- Central orchestrator routes user intent to the appropriate agent
+- Backend: FastAPI + SQLAlchemy (async) + SQLite
+- Frontend: Jinja2 + HTMX (progressive enhancement)
+- Agent framework: Custom lightweight (no external agent framework dependency)
+
+## Key Files
+- `config/agents.yaml` — Agent configurations, prompts, tools, routing rules
+- `config/settings.py` — Environment-driven app settings
+- `src/agents/base.py` — BaseAgent abstract class (all agents inherit from this)
+- `src/orchestrator/router.py` — Intent classification and agent routing
+- `src/orchestrator/coordinator.py` — Multi-agent coordination
+- `src/db/models.py` — SQLAlchemy ORM models
+- `src/db/queries.py` — Pre-built parameterized query library
+- `GUIDE.md` — Comprehensive development guide
+
+## Code Standards
+- Python 3.11+ with type hints on ALL functions
+- Async/await for ALL I/O operations (database, API calls, file reads)
+- Pydantic BaseModel for ALL request/response validation
+- structlog for logging (NEVER use print() for logging)
+- Google-style docstrings on all public functions and classes
+- All database queries use parameterized statements (NEVER f-strings for SQL)
+
+## Error Handling
+- All agent errors are logged to the `agent_logs` table
+- Agents must gracefully degrade (return helpful message, never crash)
+- Custom exceptions defined in src/utils/exceptions.py
+- Every error is documented with: problem, root cause, solution, prevention
+
+## File Organization
+- One agent per file in `src/agents/`
+- One route module per feature in `src/api/routes/`
+- Seed data as JSON in `data/seed/`
+- Training data as Markdown in `data/training/`
+- System prompts externalized in `config/agents.yaml`
+
+## Testing
+- pytest + pytest-asyncio for all tests
+- Tests mirror source structure: `tests/test_agents/`, `tests/test_db/`, etc.
+- Mock LLM calls in unit tests (never make real API calls in tests)
+- Integration tests use a test SQLite database (in-memory)

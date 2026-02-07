@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Mastery AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🎸</span>
+                <div>
+                    <h1 class="logo-text">Guitar Mastery</h1>
+                    <span class="logo-sub">AI-Powered Learning</span>
+                </div>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+        </div>
+
+        <!-- Agent Selector -->
+        <div class="sidebar-section">
+            <h3 class="section-title">Agents</h3>
+            <div class="agent-list">
+                <button class="agent-card active" data-agent="auto">
+                    <span class="agent-icon">🤖</span>
+                    <div class="agent-info">
+                        <span class="agent-name">Auto-Route</span>
+                        <span class="agent-desc">Smart agent selection</span>
+                    </div>
+                </button>
+                <button class="agent-card" data-agent="jazz_teacher">
+                    <span class="agent-icon">🎵</span>
+                    <div class="agent-info">
+                        <span class="agent-name">Jazz Teacher</span>
+                        <span class="agent-desc">Theory, technique, practice</span>
+                    </div>
+                </button>
+                <button class="agent-card" data-agent="luthier_historian">
+                    <span class="agent-icon">🪵</span>
+                    <div class="agent-info">
+                        <span class="agent-name">Luthier & Historian</span>
+                        <span class="agent-desc">Construction, history</span>
+                    </div>
+                </button>
+                <button class="agent-card" data-agent="sql_expert">
+                    <span class="agent-icon">🔍</span>
+                    <div class="agent-info">
+                        <span class="agent-name">Data Explorer</span>
+                        <span class="agent-desc">Query the knowledge base</span>
+                    </div>
+                </button>
+                <button class="agent-card" data-agent="dev_pm">
+                    <span class="agent-icon">⚙️</span>
+                    <div class="agent-info">
+                        <span class="agent-name">Dev & PM</span>
+                        <span class="agent-desc">System status, docs</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="sidebar-section">
+            <h3 class="section-title">Quick Actions</h3>
+            <div class="quick-actions">
+                <button class="quick-btn" data-prompt="Quiz me on jazz chord types">
+                    <span>📝</span> Chord Quiz
+                </button>
+                <button class="quick-btn" data-prompt="Give me a 30-minute practice routine for an intermediate player">
+                    <span>🎯</span> Practice Routine
+                </button>
+                <button class="quick-btn" data-prompt="Show me all scales in the database with difficulty 2 or less">
+                    <span>📊</span> Browse Scales
+                </button>
+                <button class="quick-btn" data-prompt="I'm stuck in a rut. Help me break through this plateau.">
+                    <span>🚀</span> Plateau Buster
+                </button>
+                <button class="quick-btn" data-prompt="Tell me about the history of the archtop guitar">
+                    <span>📜</span> Guitar History
+                </button>
+                <button class="quick-btn" data-prompt="What is the current system health status?">
+                    <span>💚</span> System Health
+                </button>
+            </div>
+        </div>
+
+        <!-- Session Info -->
+        <div class="sidebar-footer">
+            <div class="session-info">
+                <label for="skillLevel">Skill Level</label>
+                <select id="skillLevel">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <button class="new-session-btn" id="newSessionBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                New Session
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <div class="topbar-info">
+                <span class="current-agent" id="currentAgentLabel">Auto-Route</span>
+                <span class="topbar-dot">·</span>
+                <span class="session-label" id="sessionLabel">New Session</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <div class="chat-container" id="chatContainer">
+            <!-- Welcome Screen -->
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-icon">🎸</div>
+                <h2>Welcome to Guitar Mastery AI</h2>
+                <p>Your AI-powered team of guitar experts. Ask about theory, history, technique, or explore the knowledge base.</p>
+                <div class="welcome-grid">
+                    <button class="welcome-card" data-prompt="Explain the ii-V-I progression and how to solo over it">
+                        <span class="wc-icon">🎵</span>
+                        <span class="wc-title">Jazz Theory</span>
+                        <span class="wc-desc">ii-V-I progressions &amp; soloing</span>
+                    </button>
+                    <button class="welcome-card" data-prompt="Who built the first archtop guitar and why was it revolutionary?">
+                        <span class="wc-icon">🪵</span>
+                        <span class="wc-title">Guitar History</span>
+                        <span class="wc-desc">Origins of the archtop</span>
+                    </button>
+                    <button class="welcome-card" data-prompt="How many jazz standards are in the database? Show me the hardest ones.">
+                        <span class="wc-icon">🔍</span>
+                        <span class="wc-title">Explore Data</span>
+                        <span class="wc-desc">Query the knowledge base</span>
+                    </button>
+                    <button class="welcome-card" data-prompt="I'm an intermediate player stuck in a pentatonic rut. Give me a 2-week plan to level up.">
+                        <span class="wc-icon">🚀</span>
+                        <span class="wc-title">Break Through</span>
+                        <span class="wc-desc">Plateau-busting strategies</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages" id="messages"></div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea
+                        id="messageInput"
+                        placeholder="Ask about chords, scales, guitar history, technique..."
+                        rows="1"
+                        maxlength="5000"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" aria-label="Send message" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="char-count" id="charCount">0 / 5000</span>
+                    <span class="input-hint">Press Enter to send · Shift+Enter for new line</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

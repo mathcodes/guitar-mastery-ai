@@ -1,0 +1,131 @@
+[
+  {
+    "title": "30-Minute Daily Jazz Foundation",
+    "skill_level": "beginner",
+    "total_minutes": 30,
+    "description": "A structured daily routine covering the essential skills every jazz guitarist needs. Short enough to do every day, focused enough to drive real progress.",
+    "sections": [
+      {
+        "name": "Warm-up: Chromatic Exercise",
+        "minutes": 5,
+        "description": "1-2-3-4 chromatic pattern across all strings, starting at fret 1. Alternate picking, metronome at comfortable tempo. Focus on clean notes and even timing.",
+        "goals": ["Warm up fingers", "Right-left hand synchronization", "Clean technique"]
+      },
+      {
+        "name": "Chord Vocabulary",
+        "minutes": 5,
+        "description": "Practice 3 chord types in all 12 keys: pick one major 7, one minor 7, and one dominant 7 voicing. Move it through the cycle of 4ths (C-F-Bb-Eb-Ab-Db-Gb-B-E-A-D-G).",
+        "goals": ["Fretboard knowledge", "Chord voicing fluency", "Cycle of 4ths familiarity"]
+      },
+      {
+        "name": "Scale Practice",
+        "minutes": 5,
+        "description": "One scale, one position, all 12 keys via cycle of 4ths. This week: Dorian mode. Play ascending and descending, then in 3rds (1-3, 2-4, 3-5...). Metronome.",
+        "goals": ["Scale fluency", "Interval awareness", "Positional mastery"]
+      },
+      {
+        "name": "ii-V-I Practice",
+        "minutes": 10,
+        "description": "Practice the ii-V-I progression in major and minor keys. Play chord voicings, then play guide tones (3rds and 7ths), then try simple scale-based lines over each chord. Move through keys.",
+        "goals": ["ii-V-I fluency", "Guide tone awareness", "Connecting chords to scales"]
+      },
+      {
+        "name": "Tune/Repertoire",
+        "minutes": 5,
+        "description": "Work on one standard. This month: 'Autumn Leaves'. Play the melody, play the chords, try soloing over the form with a backing track.",
+        "goals": ["Repertoire building", "Applying skills musically", "Ear development"]
+      }
+    ],
+    "tags": ["daily", "beginner", "structured", "jazz"]
+  },
+  {
+    "title": "60-Minute Intermediate Jazz Workout",
+    "skill_level": "intermediate",
+    "total_minutes": 60,
+    "description": "A comprehensive routine for the intermediate player who can already comp through standards and solo with basic vocabulary. Focus areas: vocabulary expansion, ear training, and rhythmic development.",
+    "sections": [
+      {
+        "name": "Technical Warm-up",
+        "minutes": 10,
+        "description": "Scales in 3rds, 4ths, and arpeggios through one key, all positions. Alternate picking and legato. Push tempo slightly beyond comfort zone, then back off.",
+        "goals": ["Technique maintenance", "Interval fluency", "Speed development"]
+      },
+      {
+        "name": "Transcription Work",
+        "minutes": 15,
+        "description": "Transcribe 4-8 bars of a solo by ear. Slow the recording down if needed. Write it down. Analyze: what scales/arpeggios is the soloist using? What rhythmic devices? Memorize and play along.",
+        "goals": ["Ear development", "Vocabulary acquisition", "Analytical skills"]
+      },
+      {
+        "name": "Concept Application",
+        "minutes": 15,
+        "description": "Take one concept and apply it systematically. Example: 'Enclosures around chord tones.' Practice enclosing the 3rd of every chord in a ii-V-I, then the 7th, then the 5th. Apply to a tune.",
+        "goals": ["Concept internalization", "Systematic practice", "Musical application"]
+      },
+      {
+        "name": "Comping Development",
+        "minutes": 10,
+        "description": "Practice comping through a standard with a play-along. Focus on: rhythmic variety, voice leading, dynamics. Record yourself and listen back.",
+        "goals": ["Comping vocabulary", "Rhythmic creativity", "Self-assessment via recording"]
+      },
+      {
+        "name": "Repertoire & Performance",
+        "minutes": 10,
+        "description": "Play through 2-3 tunes as if performing: melody, solo, comping. No stopping to fix mistakes — push through like a real gig. Record the last tune and review.",
+        "goals": ["Performance stamina", "Repertoire maintenance", "Simulated performance"]
+      }
+    ],
+    "tags": ["daily", "intermediate", "comprehensive", "jazz"]
+  },
+  {
+    "title": "Plateau Buster — 2-Week Intensive",
+    "skill_level": "any",
+    "total_minutes": 45,
+    "description": "A 2-week program designed to shock your playing out of a rut. Each day focuses on a different constraint or challenge that forces you out of habitual patterns.",
+    "sections": [
+      {
+        "name": "Day 1-2: One String Challenge",
+        "minutes": 45,
+        "description": "Solo on one string only. Today: 2nd string (B). Play through Autumn Leaves using only this string. Forces you to see the fretboard differently and develop melodic (not positional) thinking.",
+        "goals": ["Break positional habits", "Fretboard knowledge", "Melodic thinking"]
+      },
+      {
+        "name": "Day 3-4: Rhythm Only",
+        "minutes": 45,
+        "description": "Pick ONE note (e.g., the root of the key). Solo using ONLY that note but with maximum rhythmic creativity. Explore every rhythmic subdivision, accent pattern, and dynamic variation. This reveals how much of great music is rhythm, not notes.",
+        "goals": ["Rhythmic awareness", "Time feel", "Dynamic control"]
+      },
+      {
+        "name": "Day 5-6: Uncomfortable Keys",
+        "minutes": 45,
+        "description": "Play tunes you know well in keys you never play in. Autumn Leaves in B minor. Blue Bossa in F# minor. All The Things You Are in E major. Struggle is the point.",
+        "goals": ["Key fluency", "Mental flexibility", "Ear independence from muscle memory"]
+      },
+      {
+        "name": "Day 7-8: Transcribe & Absorb",
+        "minutes": 45,
+        "description": "Transcribe an entire solo (or one chorus) from a player you admire but don't usually study. Learn it by ear, play along with the recording, then play it without the recording. Analyze it.",
+        "goals": ["Vocabulary expansion", "New stylistic influence", "Deep listening"]
+      },
+      {
+        "name": "Day 9-10: Chord Melody",
+        "minutes": 45,
+        "description": "Create a chord melody arrangement of a simple melody (Twinkle Twinkle, Happy Birthday, or a standard). Even if it's rough, the process of thinking about melody + harmony simultaneously builds deep musicianship.",
+        "goals": ["Harmonic thinking", "Arrangement skills", "Multi-voice awareness"]
+      },
+      {
+        "name": "Day 11-12: Play With Others / Play Along",
+        "minutes": 45,
+        "description": "Play with other musicians or high-quality backing tracks. Focus entirely on LISTENING and RESPONDING rather than executing your prepared material. React to what you hear.",
+        "goals": ["Interactive playing", "Listening skills", "Musical conversation"]
+      },
+      {
+        "name": "Day 13-14: Integration & Reflection",
+        "minutes": 45,
+        "description": "Combine everything from the past 12 days. Play freely through standards, incorporating new ideas. Record yourself. Compare to a recording from before the 2 weeks. Write down what changed.",
+        "goals": ["Integration", "Self-assessment", "Documentation of progress"]
+      }
+    ],
+    "tags": ["intensive", "plateau", "challenge", "any-level"]
+  }
+]

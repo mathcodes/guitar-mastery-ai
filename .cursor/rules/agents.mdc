@@ -1,0 +1,79 @@
+---
+description: Patterns and rules for developing AI agents in this project
+globs: ["src/agents/**/*.py", "config/agents.yaml", "data/training/**/*.md"]
+alwaysApply: false
+---
+
+# Agent Development Patterns
+
+## Creating a New Agent
+
+Follow these steps exactly:
+
+1. **Create agent file**: `src/agents/{agent_name}.py`
+   - Inherit from `BaseAgent` (in `src/agents/base.py`)
+   - Implement `_register_tools()` with typed async tool handlers
+   - Implement `_generate_suggestions()` for context-aware follow-ups
+   - Provide `_default_system_prompt()` static method
+
+2. **Add configuration**: Edit `config/agents.yaml`
+   - Add agent section with: name, description, model, temperature, max_tokens, tools, system_prompt
+
+3. **Create training data**: `data/training/{agent_name}_knowledge.md`
+   - Structured markdown with headers for each knowledge domain
+   - Include examples and edge cases
+   - Reference specific data the agent should know
+
+4. **Add seed data** (if needed): `data/seed/{topic}.json`
+   - JSON array of objects matching the relevant SQLAlchemy model
+
+5. **Register in orchestrator**: Edit `src/orchestrator/router.py`
+   - Add routing patterns for the new agent's domain
+   - Add the agent to the `INTENT_CATEGORIES` mapping
+
+6. **Add to `__init__.py`**: Export from `src/agents/__init__.py`
+
+7. **Write tests**: `tests/test_agents/test_{agent_name}.py`
+   - Test tool registration
+   - Test response generation with mocked LLM
+   - Test suggestion generation
+   - Test error handling
+
+## Agent Design Principles
+
+- **Single Responsibility**: One knowledge domain per agent
+- **Tools as Pure Functions**: Tool handlers should be deterministic where possible
+- **Externalized Prompts**: System prompts live in `config/agents.yaml`, not hardcoded
+- **Logged Actions**: Every agent action is logged to the `agent_logs` table
+- **Confidence Scoring**: Agents must include confidence estimates in responses
+- **Graceful Handoff**: Low-confidence responses trigger routing back to orchestrator
+- **Suggestion Generation**: Every response should include 2-3 follow-up suggestions
+
+## System Prompt Structure
+
+Every agent system prompt must include these sections:
+1. **Identity**: WHO the agent is (role, expertise level)
+2. **Capabilities**: WHAT the agent can do (knowledge areas, tools)
+3. **Boundaries**: What the agent CANNOT do (limitations, handoff triggers)
+4. **Response Format**: HOW responses should be structured
+5. **Safety**: Guardrails (no harmful content, admit uncertainty)
+
+## Tool Definition Pattern
+
+```python
+self.register_tool(Tool(
+    name="descriptive_snake_case_name",
+    description="Clear description of what this tool does and when to use it",
+    parameters={
+        "type": "object",
+        "properties": {
+            "param_name": {
+                "type": "string",
+                "description": "What this parameter is for"
+            },
+        },
+        "required": ["param_name"],
+    },
+    handler=self._tool_handler_method,
+))
+```

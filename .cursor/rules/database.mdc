@@ -1,0 +1,39 @@
+---
+description: Database conventions for SQLite + SQLAlchemy operations
+globs: ["src/db/**/*.py", "data/seed/**/*.json"]
+alwaysApply: false
+---
+
+# Database Development Rules
+
+## Schema Conventions
+- All tables have: `id` (Integer PK), `created_at`, `updated_at` (DateTime with UTC timezone)
+- Use `is_active` Boolean for soft deletes (NEVER hard delete user data)
+- JSON columns for flexible/nested data (voicings, positions, questions)
+- Index columns used in WHERE clauses and JOINs
+- Foreign keys enforced via PRAGMA (see connection.py)
+
+## Query Safety — ABSOLUTE RULES
+1. ALL queries MUST use parameterized statements
+2. NEVER construct SQL with f-strings, string concatenation, or `.format()`
+3. User-facing queries are SELECT-only (validated in `execute_safe_select`)
+4. All queries include LIMIT clause (default 50)
+5. Use SQLAlchemy's `select()` construct or `text()` with parameters
+
+## SQLite Pragmas (Applied Automatically)
+- `journal_mode=WAL` — Write-Ahead Logging for concurrent reads
+- `busy_timeout=5000` — Wait 5s on locks
+- `synchronous=NORMAL` — Balance safety and speed
+- `cache_size=-64000` — 64MB page cache
+- `foreign_keys=ON` — Enforce FK constraints
+
+## Adding Seed Data
+1. Create JSON file in `data/seed/{topic}.json`
+2. JSON structure must match the SQLAlchemy model's column names
+3. JSON columns (intervals, voicings, etc.) are stored as Python dicts/lists
+4. Run seed script: `python -m src.db.seed`
+
+## Migration Strategy
+- Use Alembic for schema changes after initial deployment
+- NEVER modify models.py without creating a migration
+- Test migrations against a copy of the production database first

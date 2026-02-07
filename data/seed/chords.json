@@ -1,0 +1,254 @@
+[
+  {
+    "name": "Major 7",
+    "root": "C",
+    "chord_type": "maj7",
+    "formula": "1 3 5 7",
+    "intervals": ["1", "3", "5", "7"],
+    "notes_in_c": "C E G B",
+    "category": "jazz",
+    "voicings": [
+      {"name": "Drop 2 (5th string root)", "frets": ["x", 3, 5, 4, 5, "x"], "fingers": [0, 1, 3, 2, 4, 0]},
+      {"name": "Drop 3 (6th string root)", "frets": [8, "x", 9, 9, 8, "x"], "fingers": [1, 0, 3, 4, 2, 0]},
+      {"name": "Open position", "frets": ["x", 3, 2, 0, 0, 0], "fingers": [0, 3, 2, 0, 0, 0]}
+    ],
+    "description": "The major 7th chord has a lush, dreamy quality. It's the 'home' sound in jazz — warm, resolved, and sophisticated. Built from the 1st, 3rd, 5th, and 7th degrees of the major scale.",
+    "common_progressions": ["I in major key", "IVmaj7 in major key", "Imaj7-vi7-ii7-V7"],
+    "difficulty": 2,
+    "tags": ["essential", "jazz", "beginner-friendly"]
+  },
+  {
+    "name": "Dominant 7",
+    "root": "C",
+    "chord_type": "dom7",
+    "formula": "1 3 5 b7",
+    "intervals": ["1", "3", "5", "b7"],
+    "notes_in_c": "C E G Bb",
+    "category": "jazz",
+    "voicings": [
+      {"name": "Drop 2 (5th string root)", "frets": ["x", 3, 5, 3, 5, "x"], "fingers": [0, 1, 3, 1, 4, 0]},
+      {"name": "6th string root barre", "frets": [8, 10, 8, 9, 8, 8], "fingers": [1, 3, 1, 2, 1, 1]},
+      {"name": "Freddie Green style", "frets": ["x", 3, "x", 3, 5, "x"], "fingers": [0, 1, 0, 2, 4, 0]}
+    ],
+    "description": "The dominant 7th is the engine of jazz harmony. Its inherent tension (the tritone between the 3rd and b7th) creates a strong pull toward resolution, making it essential in ii-V-I progressions and blues.",
+    "common_progressions": ["V7 in ii-V-I", "blues changes", "secondary dominants"],
+    "difficulty": 2,
+    "tags": ["essential", "jazz", "blues", "beginner-friendly"]
+  },
+  {
+    "name": "Minor 7",
+    "root": "C",
+    "chord_type": "min7",
+    "formula": "1 b3 5 b7",
+    "intervals": ["1", "b3", "5", "b7"],
+    "notes_in_c": "C Eb G Bb",
+    "category": "jazz",
+    "voicings": [
+      {"name": "Drop 2 (5th string root)", "frets": ["x", 3, 5, 3, 4, "x"], "fingers": [0, 1, 3, 1, 2, 0]},
+      {"name": "6th string root", "frets": [8, 10, 8, 8, 8, 8], "fingers": [1, 3, 1, 1, 1, 1]},
+      {"name": "Rootless (from 3rd)", "frets": ["x", "x", 5, 3, 4, 3], "fingers": [0, 0, 4, 1, 3, 2]}
+    ],
+    "description": "The minor 7th is smooth, mellow, and fundamental to jazz. It typically functions as the ii chord in a ii-V-I progression. Its gentle quality makes it versatile across many musical contexts.",
+    "common_progressions": ["ii in ii-V-I", "iii in major key", "vi in major key"],
+    "difficulty": 2,
+    "tags": ["essential", "jazz", "beginner-friendly"]
+  },
+  {
+    "name": "Half-Diminished (m7b5)",
+    "root": "C",
+    "chord_type": "m7b5",
+    "formula": "1 b3 b5 b7",
+    "intervals": ["1", "b3", "b5", "b7"],
+    "notes_in_c": "C Eb Gb Bb",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 4, 3, 4, "x"], "fingers": [0, 1, 3, 2, 4, 0]},
+      {"name": "6th string root", "frets": [8, "x", 8, 8, 7, "x"], "fingers": [2, 0, 3, 4, 1, 0]}
+    ],
+    "description": "The half-diminished chord has a yearning, unresolved quality. In jazz, it's the ii chord in minor key ii-V-i progressions. The b5 creates a distinctive dark tension that wants to move to a dominant chord.",
+    "common_progressions": ["ii in minor ii-V-i", "vii in major key"],
+    "difficulty": 3,
+    "tags": ["essential", "jazz", "minor-key"]
+  },
+  {
+    "name": "Diminished 7",
+    "root": "C",
+    "chord_type": "dim7",
+    "formula": "1 b3 b5 bb7",
+    "intervals": ["1", "b3", "b5", "bb7"],
+    "notes_in_c": "C Eb Gb Bbb(A)",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 4, 2, 4, "x"], "fingers": [0, 2, 3, 1, 4, 0]},
+      {"name": "6th string root", "frets": [8, "x", 7, 8, 7, "x"], "fingers": [2, 0, 1, 3, 1, 0]}
+    ],
+    "description": "The fully diminished 7th is a symmetric chord — all intervals are minor 3rds. This means there are only 3 unique diminished 7th chords. It's used as a passing chord, a dominant substitute (it shares 3 notes with a dom7b9), and for chromatic movement.",
+    "common_progressions": ["passing chord", "dominant substitute", "diminished approach"],
+    "difficulty": 3,
+    "tags": ["jazz", "symmetric", "passing-chord"]
+  },
+  {
+    "name": "Dominant 7b9",
+    "root": "C",
+    "chord_type": "7b9",
+    "formula": "1 3 5 b7 b9",
+    "intervals": ["1", "3", "5", "b7", "b9"],
+    "notes_in_c": "C E G Bb Db",
+    "category": "altered",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 2, 3, 2, "x"], "fingers": [0, 2, 1, 3, 1, 0]},
+      {"name": "6th string root", "frets": [8, "x", 8, 9, 8, 9], "fingers": [1, 0, 1, 2, 1, 3]}
+    ],
+    "description": "The dominant 7b9 is a crucial altered dominant chord in jazz. The b9 adds a dark, tense color that resolves beautifully to minor chords. It shares all notes except the root with a diminished 7th chord, which explains their interchangeability.",
+    "common_progressions": ["V7b9 to i (minor)", "secondary dominant", "tritone sub prep"],
+    "difficulty": 3,
+    "tags": ["jazz", "altered", "dominant", "tension"]
+  },
+  {
+    "name": "Dominant 7#9",
+    "root": "C",
+    "chord_type": "7#9",
+    "formula": "1 3 5 b7 #9",
+    "intervals": ["1", "3", "5", "b7", "#9"],
+    "notes_in_c": "C E G Bb D#",
+    "category": "altered",
+    "voicings": [
+      {"name": "Hendrix chord (6th string root)", "frets": [8, 10, 8, 9, 8, 11], "fingers": [1, 3, 1, 2, 1, 4]}
+    ],
+    "description": "The 'Hendrix chord' — famously used in Purple Haze. The #9 creates a fierce clash with the natural 3rd, producing a raw, bluesy sound. In jazz, it's used for dominant chords resolving to minor (the #9 = b3 of the target minor chord).",
+    "common_progressions": ["V7#9 to i", "blues turnarounds", "funk vamps"],
+    "difficulty": 3,
+    "tags": ["jazz", "altered", "dominant", "blues", "hendrix"]
+  },
+  {
+    "name": "Dominant 7#11",
+    "root": "C",
+    "chord_type": "7#11",
+    "formula": "1 3 5 b7 #11",
+    "intervals": ["1", "3", "5", "b7", "#11"],
+    "notes_in_c": "C E G Bb F#",
+    "category": "altered",
+    "voicings": [
+      {"name": "Drop 2 voicing", "frets": ["x", 3, 4, 3, 5, "x"], "fingers": [0, 1, 2, 1, 4, 0]}
+    ],
+    "description": "The Lydian dominant sound. The #11 replaces the natural 11 (which clashes with the 3rd) and adds a bright, open, almost floating quality. Essential for dominant chords functioning as bII7 tritone substitutes, and for the IV7 in blues.",
+    "common_progressions": ["tritone sub (bII7)", "IV7 in blues", "Lydian dominant context"],
+    "difficulty": 4,
+    "tags": ["jazz", "altered", "lydian-dominant"]
+  },
+  {
+    "name": "Minor 9",
+    "root": "C",
+    "chord_type": "min9",
+    "formula": "1 b3 5 b7 9",
+    "intervals": ["1", "b3", "5", "b7", "9"],
+    "notes_in_c": "C Eb G Bb D",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 1, 3, 3, "x"], "fingers": [0, 2, 1, 3, 4, 0]},
+      {"name": "Rootless voicing", "frets": ["x", "x", 5, 3, 4, 5], "fingers": [0, 0, 3, 1, 2, 4]}
+    ],
+    "description": "A rich extension of the minor 7th. The added 9th warms up the chord, giving it a more modern, sophisticated quality. Very common in neo-soul, R&B, and modern jazz contexts.",
+    "common_progressions": ["ii9 in ii-V-I", "tonic minor", "vamp chords"],
+    "difficulty": 3,
+    "tags": ["jazz", "extended", "neo-soul"]
+  },
+  {
+    "name": "Major 9",
+    "root": "C",
+    "chord_type": "maj9",
+    "formula": "1 3 5 7 9",
+    "intervals": ["1", "3", "5", "7", "9"],
+    "notes_in_c": "C E G B D",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 0, 4, 5, "x"], "fingers": [0, 1, 0, 2, 3, 0]}
+    ],
+    "description": "A beautiful, lush extension of the major 7th. The 9th adds warmth and openness. Often used as a tonic chord in jazz ballads and bossa nova, and by players like Pat Metheny and Emily Remler.",
+    "common_progressions": ["Imaj9", "IVmaj9", "ballad tonic"],
+    "difficulty": 3,
+    "tags": ["jazz", "extended", "ballad", "bossa"]
+  },
+  {
+    "name": "Dominant 13",
+    "root": "C",
+    "chord_type": "dom13",
+    "formula": "1 3 5 b7 9 13",
+    "intervals": ["1", "3", "5", "b7", "9", "13"],
+    "notes_in_c": "C E G Bb D A",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 5, 3, 5, 5], "fingers": [0, 1, 2, 1, 3, 4]},
+      {"name": "Freddie Green shell", "frets": ["x", 3, "x", 3, 5, 5], "fingers": [0, 1, 0, 1, 3, 4]}
+    ],
+    "description": "The dominant 13th is one of the most colorful dominant chords. The natural 13th (6th) adds a sweet, bright element on top of the dominant tension. Commonly used in swing, big band, and blues-influenced jazz.",
+    "common_progressions": ["V13 in ii-V-I", "I13 in blues", "turnarounds"],
+    "difficulty": 4,
+    "tags": ["jazz", "extended", "swing", "big-band"]
+  },
+  {
+    "name": "Dominant 7b9#11",
+    "root": "C",
+    "chord_type": "7b9#11",
+    "formula": "1 3 5 b7 b9 #11",
+    "intervals": ["1", "3", "5", "b7", "b9", "#11"],
+    "notes_in_c": "C E G Bb Db F#",
+    "category": "altered",
+    "voicings": [
+      {"name": "6th string root", "frets": [8, 9, 8, 9, "x", "x"], "fingers": [1, 2, 1, 3, 0, 0]}
+    ],
+    "description": "Double-altered dominant combining the dark b9 with the bright #11. This creates maximum tension that resolves powerfully. Used in advanced jazz harmony, especially in post-bop and contemporary contexts.",
+    "common_progressions": ["V7alt resolving to i", "chromatic approach chords"],
+    "difficulty": 5,
+    "tags": ["jazz", "altered", "advanced", "post-bop"]
+  },
+  {
+    "name": "Dominant 7alt",
+    "root": "C",
+    "chord_type": "7alt",
+    "formula": "1 3 b7 b9/#9 b5/#5",
+    "intervals": ["1", "3", "b7", "b9", "#9", "#5"],
+    "notes_in_c": "C E Bb Db D# G#",
+    "category": "altered",
+    "voicings": [
+      {"name": "Common alt voicing", "frets": ["x", 3, 4, 3, 3, "x"], "fingers": [0, 1, 4, 2, 3, 0]}
+    ],
+    "description": "The altered dominant — ALL available tensions are altered (b9, #9, b5/#11, #5/b13). This is the sound of the 7th mode of melodic minor (the 'altered scale' or 'super Locrian'). Maximum tension, resolves anywhere. A cornerstone of modern jazz harmony.",
+    "common_progressions": ["V7alt to Imaj7 or i", "tritone sub preparation", "chromatic ii-V patterns"],
+    "difficulty": 5,
+    "tags": ["jazz", "altered", "advanced", "melodic-minor"]
+  },
+  {
+    "name": "Minor 6",
+    "root": "C",
+    "chord_type": "min6",
+    "formula": "1 b3 5 6",
+    "intervals": ["1", "b3", "5", "6"],
+    "notes_in_c": "C Eb G A",
+    "category": "jazz",
+    "voicings": [
+      {"name": "5th string root", "frets": ["x", 3, 5, 2, 4, "x"], "fingers": [0, 2, 4, 1, 3, 0]}
+    ],
+    "description": "The minor 6th chord is the tonic sound of melodic minor harmony. Unlike minor 7, the natural 6th gives it a brighter, more ambiguous quality. This is the chord that Barry Harris and other bebop masters used as the fundamental minor tonic sonority.",
+    "common_progressions": ["tonic minor", "barry harris system", "minor blues"],
+    "difficulty": 3,
+    "tags": ["jazz", "bebop", "melodic-minor", "barry-harris"]
+  },
+  {
+    "name": "Quartal Voicing (sus4 stack)",
+    "root": "C",
+    "chord_type": "quartal",
+    "formula": "1 4 b7 (stacked 4ths)",
+    "intervals": ["1", "4", "b7"],
+    "notes_in_c": "C F Bb",
+    "category": "modern-jazz",
+    "voicings": [
+      {"name": "McCoy Tyner style", "frets": ["x", "x", 10, 10, 11, "x"], "fingers": [0, 0, 1, 2, 3, 0]},
+      {"name": "Open string quartal", "frets": ["x", 3, 0, 0, 1, 0], "fingers": [0, 3, 0, 0, 1, 0]}
+    ],
+    "description": "Quartal voicings are built from stacked 4th intervals instead of 3rds. Pioneered by McCoy Tyner and adopted by guitarists like Pat Metheny and Kurt Rosenwinkel, they create an open, modern, ambiguous sound that avoids the 'chord quality' specificity of tertian harmony.",
+    "common_progressions": ["modal jazz vamps", "So What changes", "modern comping"],
+    "difficulty": 4,
+    "tags": ["modern-jazz", "modal", "mccoy-tyner", "quartal"]
+  }
+]

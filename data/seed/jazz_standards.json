@@ -1,0 +1,166 @@
+[
+  {
+    "title": "Autumn Leaves",
+    "composer": "Joseph Kosma / Johnny Mercer",
+    "year": 1945,
+    "key": "G minor (concert) / E minor (real book)",
+    "tempo_range": "medium swing 120-160 BPM",
+    "form": "AABC (32 bars)",
+    "measures": 32,
+    "changes": {
+      "A1": ["Cm7", "F7", "Bbmaj7", "Ebmaj7", "Am7b5", "D7", "Gm", "Gm"],
+      "A2": ["Cm7", "F7", "Bbmaj7", "Ebmaj7", "Am7b5", "D7", "Gm", "Gm"],
+      "B": ["Am7b5", "D7", "Gm", "Gm", "Cm7", "F7", "Bbmaj7", "Bbmaj7"],
+      "C": ["Am7b5", "D7", "Gm6/Eb7", "D7", "Cm7/Am7b5", "D7b9", "Gm", "Gm"]
+    },
+    "analysis": "Autumn Leaves is the quintessential jazz standard for learning ii-V-I progressions in both major and minor keys. The A sections feature a clear pattern: minor ii-V-I (Am7b5 - D7 - Gm) alternating with major ii-V-I (Cm7 - F7 - Bbmaj7). This makes it the perfect vehicle for practicing the most fundamental chord progression in jazz.\n\nThe harmony moves through two closely related keys: Bb major and G minor (relative major/minor). This diatonic relationship means the same pool of notes works over much of the tune, making it accessible for beginners while offering depth for advanced players through reharmonization.",
+    "common_substitutions": ["Tritone sub D7 → Ab7", "Back-cycling: Eb7-Ab7-D7-Gm", "Coltrane changes substitution"],
+    "key_concepts": ["ii-V-I major", "ii-V-i minor", "relative major/minor", "guide tones"],
+    "suggested_scales": {
+      "Cm7": "C Dorian",
+      "F7": "F Mixolydian or F Altered (for tension)",
+      "Bbmaj7": "Bb Ionian or Bb Lydian",
+      "Ebmaj7": "Eb Lydian",
+      "Am7b5": "A Locrian or A Locrian #2",
+      "D7": "D Mixolydian, D Altered, or D HW Diminished",
+      "Gm": "G Dorian or G Melodic Minor"
+    },
+    "notable_recordings": [
+      "Cannonball Adderley — 'Somethin' Else' (with Miles Davis, 1958)",
+      "Bill Evans Trio — 'Portrait in Jazz' (1959)",
+      "Joe Pass — 'Virtuoso' (1973)",
+      "Chet Baker — 'Chet Baker Sings' (1954)"
+    ],
+    "difficulty": 1,
+    "tags": ["essential", "beginner", "ii-V-I", "standard"]
+  },
+  {
+    "title": "All The Things You Are",
+    "composer": "Jerome Kern / Oscar Hammerstein II",
+    "year": 1939,
+    "key": "Ab major",
+    "tempo_range": "medium swing 140-180 BPM",
+    "form": "AABA (36 bars)",
+    "measures": 36,
+    "changes": {
+      "A1": ["Fm7", "Bbm7", "Eb7", "Abmaj7", "Dbmaj7", "G7", "Cmaj7", "Cmaj7"],
+      "A2": ["Cm7", "Fm7", "Bb7", "Ebmaj7", "Abmaj7", "D7", "Gmaj7", "Gmaj7"],
+      "B": ["Am7", "D7", "Gmaj7", "Gmaj7", "F#m7", "B7", "Emaj7", "C+7"],
+      "A3": ["Fm7", "Bbm7", "Eb7", "Abmaj7", "Dbmaj7", "Gb7", "Cm7/Bdim7", "Bbm7/Eb7", "Abmaj7", "Gm7b5/C7b9"]
+    },
+    "analysis": "Considered one of the most harmonically sophisticated standards, ATTYA modulates through multiple key centers. The A sections move from Ab major to C major (via a deceptive resolution), while the second A starts in Eb and modulates to G major. The bridge moves to G major then E major before returning.\n\nThe key insight is that each section is built on ii-V-I progressions, just in different keys. If you can hear the ii-V-I motion, the tune becomes navigable despite all the key changes. This is the standard that separates beginners from intermediate players.",
+    "common_substitutions": ["Tritone subs on all dominant chords", "Coltrane substitution on the bridge", "Diminished passing chords"],
+    "key_concepts": ["Key center modulation", "ii-V-I in multiple keys", "Chromatic key movement", "Extended form (36 bars)"],
+    "suggested_scales": {
+      "Fm7": "F Dorian",
+      "Bbm7": "Bb Dorian",
+      "Eb7": "Eb Mixolydian or Altered",
+      "Abmaj7": "Ab Ionian or Lydian",
+      "Dbmaj7": "Db Lydian",
+      "G7": "G Altered (resolving to C)",
+      "Cmaj7": "C Ionian or Lydian"
+    },
+    "notable_recordings": [
+      "Charlie Parker — 'Bird with Strings' (1949)",
+      "Sonny Rollins — 'A Night at the Village Vanguard' (1957)",
+      "Keith Jarrett Trio — 'Still Live' (1986)",
+      "Ella Fitzgerald — 'Ella Fitzgerald Sings the Jerome Kern Song Book' (1963)"
+    ],
+    "difficulty": 3,
+    "tags": ["essential", "intermediate", "modulation", "classic"]
+  },
+  {
+    "title": "Blue Bossa",
+    "composer": "Kenny Dorham",
+    "year": 1963,
+    "key": "C minor",
+    "tempo_range": "medium bossa nova 140-160 BPM",
+    "form": "16 bars",
+    "measures": 16,
+    "changes": {
+      "A": ["Cm7", "Cm7", "Fm7", "Fm7", "Dm7b5", "G7b9", "Cm7", "Cm7"],
+      "B": ["Ebm7", "Ab7", "Dbmaj7", "Dbmaj7", "Dm7b5", "G7b9", "Cm7", "Dm7b5/G7b9"]
+    },
+    "analysis": "Blue Bossa is one of the most-called tunes at jazz jam sessions and an ideal introduction to Latin jazz. The 16-bar form is short and manageable. The A section stays in C minor with a clear minor ii-V-i (Dm7b5 - G7b9 - Cm7). The B section modulates briefly to Db major (a half-step up) via Ebm7 - Ab7 - Dbmaj7, then returns to C minor.\n\nThe Db major modulation is the only 'tricky' part — everything else is in C minor. This makes Blue Bossa the perfect first tune for practicing minor key improvisation and navigating a simple modulation.",
+    "common_substitutions": ["Ab7 tritone sub: D7#11", "Chromatic approach to Dbmaj7"],
+    "key_concepts": ["Minor ii-V-i", "Bossa nova rhythm", "Half-step modulation", "Simple form"],
+    "suggested_scales": {
+      "Cm7": "C Dorian",
+      "Fm7": "F Dorian",
+      "Dm7b5": "D Locrian #2",
+      "G7b9": "G HW Diminished or G Altered",
+      "Ebm7": "Eb Dorian",
+      "Ab7": "Ab Mixolydian",
+      "Dbmaj7": "Db Ionian or Lydian"
+    },
+    "notable_recordings": [
+      "Joe Henderson — 'Page One' (with Kenny Dorham, 1963)",
+      "Dexter Gordon — 'Sophisticated Giant' (1977)",
+      "Pat Martino — various live recordings"
+    ],
+    "difficulty": 2,
+    "tags": ["essential", "beginner", "bossa", "latin", "minor-key", "jam-session"]
+  },
+  {
+    "title": "Stella by Starlight",
+    "composer": "Victor Young",
+    "year": 1944,
+    "key": "Bb major",
+    "tempo_range": "medium swing 120-160 BPM",
+    "form": "ABAB' (32 bars)",
+    "measures": 32,
+    "changes": {
+      "A1": ["Em7b5", "A7b9", "Cm7", "F7", "Fm7", "Bb7", "Ebmaj7", "Ab7#11"],
+      "B1": ["Bbmaj7", "Em7b5/A7", "Dm7", "Bbm7/Eb7", "Fmaj7", "Em7b5/A7", "Am7b5", "D7b9"],
+      "A2": ["Em7b5", "A7b9", "Cm7", "F7", "Fm7", "Bb7", "Ebmaj7", "Ab7#11"],
+      "B2": ["Bbmaj7", "Em7b5/A7", "Dm7/G7", "Cm7/F7", "Bbmaj7", "Bbmaj7", "Bbmaj7", "Bbmaj7"]
+    },
+    "analysis": "Stella by Starlight is a masterpiece of chromatic jazz harmony. The progression constantly moves through different key centers via ii-V patterns, requiring the improviser to navigate quick modulations.\n\nKey harmonic features: The tune begins with a ii-V in D minor (Em7b5-A7b9) but deceptively resolves to Cm7 instead, immediately creating harmonic tension. The Ab7#11 in measure 8 functions as a tritone substitute. The bridge visits Bb major, D minor, then Eb major before resolving back.\n\nThis is a tune that rewards deep harmonic study. Every chord change has purpose and logic.",
+    "common_substitutions": ["Various tritone subs throughout", "Coltrane changes on bridge", "Diminished substitutions"],
+    "key_concepts": ["Chromatic ii-V patterns", "Deceptive resolutions", "Tritone substitution", "Quick modulations"],
+    "suggested_scales": {
+      "Em7b5": "E Locrian #2",
+      "A7b9": "A Altered or A HW Diminished",
+      "Cm7": "C Dorian",
+      "F7": "F Mixolydian or Altered",
+      "Ab7#11": "Ab Lydian Dominant"
+    },
+    "notable_recordings": [
+      "Miles Davis — 'My Funny Valentine' (live, 1964)",
+      "Stan Getz — 'The Steamer' (1956)",
+      "Joe Pass — 'Virtuoso' (1973)",
+      "Keith Jarrett — 'Standards, Vol. 1' (1983)"
+    ],
+    "difficulty": 4,
+    "tags": ["advanced", "chromatic", "classic", "challenging-harmony"]
+  },
+  {
+    "title": "So What",
+    "composer": "Miles Davis",
+    "year": 1959,
+    "key": "D Dorian / Eb Dorian",
+    "tempo_range": "medium swing 136 BPM (original)",
+    "form": "AABA (32 bars)",
+    "measures": 32,
+    "changes": {
+      "A1": ["Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7"],
+      "A2": ["Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7"],
+      "B": ["Ebm7", "Ebm7", "Ebm7", "Ebm7", "Ebm7", "Ebm7", "Ebm7", "Ebm7"],
+      "A3": ["Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7", "Dm7"]
+    },
+    "analysis": "So What is the landmark modal jazz composition from Miles Davis's 'Kind of Blue' (1959), the best-selling jazz album of all time. With only two chords — Dm7 for the A sections and Ebm7 for the bridge — it represents a radical departure from the complex bebop harmony of the 1950s.\n\nThe simplicity is deceptive. With no chord changes to outline, the improviser must create interest through:\n- Melodic invention (you can't rely on chord tones resolving)\n- Rhythmic creativity\n- Dynamic variation\n- Modal color (exploring the full palette of D Dorian / Eb Dorian)\n\nThe 'So What chord' (a quartal voicing: D-G-C-F-A) voiced by Bill Evans on the original recording became one of the most iconic sounds in jazz. Guitarists frequently use this voicing.",
+    "common_substitutions": ["Not applicable — the point is modal simplicity"],
+    "key_concepts": ["Modal jazz", "Dorian mode", "Quartal voicings", "Melodic development over static harmony"],
+    "suggested_scales": {
+      "Dm7": "D Dorian (primary), D Minor Pentatonic, D Melodic Minor (for color)",
+      "Ebm7": "Eb Dorian, Eb Minor Pentatonic"
+    },
+    "notable_recordings": [
+      "Miles Davis — 'Kind of Blue' (1959, THE recording)",
+      "John Coltrane — his solo on the original is a masterclass",
+      "Bill Evans Trio — the piano intro is iconic"
+    ],
+    "difficulty": 2,
+    "tags": ["essential", "modal", "miles-davis", "kind-of-blue", "beginner-friendly"]
+  }
+]

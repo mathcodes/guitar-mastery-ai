@@ -1,0 +1,36 @@
+---
+description: Testing standards and patterns for the Guitar Mastery AI app
+globs: ["tests/**/*.py", "conftest.py"]
+alwaysApply: false
+---
+
+# Testing Standards
+
+## Test Organization
+- Mirror source structure: `tests/test_agents/`, `tests/test_db/`, `tests/test_api/`
+- Shared fixtures in `tests/conftest.py`
+- Each test file corresponds to a source file: `test_luthier.py` ↔ `luthier.py`
+
+## Rules
+- NEVER make real LLM API calls in tests (use MockLLM fixture)
+- NEVER use the production database (use in-memory SQLite for tests)
+- Every agent must have tests for: tool registration, response generation, error handling
+- Integration tests must test the full request flow (API → Router → Agent → DB)
+- Run `pytest -x --tb=short` after every significant code change
+
+## Fixtures Available
+- `db_session` — Async SQLAlchemy session with in-memory SQLite
+- `mock_llm` — MockLLM that returns deterministic responses
+- `client` — AsyncClient for FastAPI integration testing
+- `seeded_db` — Database pre-loaded with seed data
+
+## Test Naming
+- `test_{what_is_being_tested}` — descriptive names
+- Group related tests in classes: `class TestJazzTeacherAgent`
+- Use parametrize for testing multiple inputs:
+  ```python
+  @pytest.mark.parametrize("chord_type,expected", [
+      ("maj7", "1 3 5 7"),
+      ("min7", "1 b3 5 b7"),
+  ])
+  ```

@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Jazz Chord Fundamentals",
+    "topic": "chords",
+    "difficulty": 1,
+    "questions": [
+      {
+        "question": "What intervals make up a Major 7th chord?",
+        "type": "multiple_choice",
+        "options": ["1 3 5 b7", "1 3 5 7", "1 b3 5 7", "1 b3 5 b7"],
+        "correct_answer": "1 3 5 7",
+        "explanation": "A Major 7th chord is built from the 1st (root), 3rd, 5th, and 7th degrees of the major scale. The natural 7th (not flatted) is what distinguishes it from a Dominant 7th chord."
+      },
+      {
+        "question": "Which chord type is commonly referred to as the 'Hendrix chord'?",
+        "type": "multiple_choice",
+        "options": ["7#11", "7#9", "7b9", "maj7#5"],
+        "correct_answer": "7#9",
+        "explanation": "The 7#9 chord is famously known as the 'Hendrix chord' because of its prominent use in Jimi Hendrix's 'Purple Haze.' The clash between the natural 3rd and the #9 (enharmonic b3) creates its distinctive raw, bluesy sound."
+      },
+      {
+        "question": "In a ii-V-I progression in C major, what are the three chords?",
+        "type": "multiple_choice",
+        "options": ["Cm7 - F7 - Bbmaj7", "Dm7 - G7 - Cmaj7", "Em7 - A7 - Dmaj7", "Am7 - D7 - Gmaj7"],
+        "correct_answer": "Dm7 - G7 - Cmaj7",
+        "explanation": "In C major: ii = Dm7 (D is the 2nd degree), V = G7 (G is the 5th degree), I = Cmaj7 (C is the root). The ii-V-I is the most common chord progression in jazz."
+      },
+      {
+        "question": "What is the formula for a half-diminished (m7b5) chord?",
+        "type": "multiple_choice",
+        "options": ["1 b3 b5 bb7", "1 b3 b5 b7", "1 b3 5 b7", "1 3 b5 b7"],
+        "correct_answer": "1 b3 b5 b7",
+        "explanation": "Half-diminished = 1 b3 b5 b7. It's called 'half' diminished because only the 5th is diminished (unlike fully diminished where the 7th is also diminished to bb7). It's the ii chord in minor key ii-V-i progressions."
+      },
+      {
+        "question": "What is the defining characteristic of a tritone (as found in dominant 7th chords)?",
+        "type": "multiple_choice",
+        "options": ["An interval of 3 whole steps (6 half steps)", "An interval of 2 whole steps", "An interval of 4 whole steps", "An interval of 3 half steps"],
+        "correct_answer": "An interval of 3 whole steps (6 half steps)",
+        "explanation": "The tritone is an interval of 3 whole steps (or 6 half steps), which divides the octave exactly in half. In a dominant 7th chord, the tritone exists between the 3rd and b7th (e.g., in G7: B to F). This inherent tension is what drives the V7 chord to resolve to the I chord."
+      }
+    ],
+    "created_by": "jazz_teacher",
+    "time_limit_seconds": 300,
+    "tags": ["chords", "fundamentals", "beginner"]
+  },
+  {
+    "title": "Scale & Mode Identification",
+    "topic": "scales",
+    "difficulty": 2,
+    "questions": [
+      {
+        "question": "Which mode of the major scale has a natural 6th that distinguishes it from natural minor (Aeolian)?",
+        "type": "multiple_choice",
+        "options": ["Phrygian", "Dorian", "Locrian", "Mixolydian"],
+        "correct_answer": "Dorian",
+        "explanation": "Dorian (the 2nd mode) has the formula 1 2 b3 4 5 6 b7. The natural 6th is what sets it apart from Aeolian (1 2 b3 4 5 b6 b7). This makes Dorian a brighter minor scale and the most commonly used minor mode in jazz."
+      },
+      {
+        "question": "The Altered Scale (Super Locrian) is the 7th mode of which parent scale?",
+        "type": "multiple_choice",
+        "options": ["Major Scale", "Harmonic Minor", "Melodic Minor", "Whole Tone"],
+        "correct_answer": "Melodic Minor",
+        "explanation": "The Altered Scale is the 7th mode of the melodic minor scale. If you play C melodic minor starting on B, you get B Altered (B C D Eb F G A). It contains all the altered tensions: b9, #9, #11(b5), b13(#5)."
+      },
+      {
+        "question": "What scale would you play over a Dm7b5 chord in a minor ii-V-i for a sophisticated sound?",
+        "type": "multiple_choice",
+        "options": ["D Dorian", "D Locrian #2", "D Mixolydian", "D Aeolian"],
+        "correct_answer": "D Locrian #2",
+        "explanation": "D Locrian #2 (the 6th mode of F melodic minor) has the formula 1 2 b3 4 b5 b6 b7. The natural 2nd (instead of b2 in regular Locrian) makes it smoother and more usable. Many jazz educators recommend it as the default m7b5 scale."
+      },
+      {
+        "question": "How many unique whole tone scales exist?",
+        "type": "multiple_choice",
+        "options": ["1", "2", "3", "6"],
+        "correct_answer": "2",
+        "explanation": "Because the whole tone scale is built entirely of whole steps, transposing it by a whole step gives you the same notes. There are only 2 unique whole tone scales: one starting on C (C D E F# G# A#) and one starting on Db (Db Eb F G A B)."
+      },
+      {
+        "question": "What is the key feature of a bebop scale compared to its parent 7-note scale?",
+        "type": "multiple_choice",
+        "options": ["It removes a note to create 6 notes", "It adds a chromatic passing tone to create 8 notes", "It replaces the 4th with a #4", "It uses quarter tones"],
+        "correct_answer": "It adds a chromatic passing tone to create 8 notes",
+        "explanation": "Bebop scales add one chromatic passing tone to create an 8-note scale. This ensures that chord tones (1, 3, 5, b7) land on downbeats when playing continuous eighth notes. The bebop dominant scale adds a natural 7th between b7 and root."
+      }
+    ],
+    "created_by": "jazz_teacher",
+    "time_limit_seconds": 300,
+    "tags": ["scales", "modes", "intermediate"]
+  },
+  {
+    "title": "Guitar History & Luthiers",
+    "topic": "guitar_history",
+    "difficulty": 2,
+    "questions": [
+      {
+        "question": "Who is credited with developing X-bracing for the acoustic guitar?",
+        "type": "multiple_choice",
+        "options": ["Antonio de Torres", "C.F. Martin", "Orville Gibson", "Leo Fender"],
+        "correct_answer": "C.F. Martin",
+        "explanation": "C.F. Martin developed X-bracing around 1843. This bracing pattern, where two braces cross below the soundhole in an X shape, allowed guitars to withstand the higher tension of steel strings while maintaining tonal projection. It remains the standard for steel-string acoustic guitars."
+      },
+      {
+        "question": "What innovation did Lloyd Loar bring to the Gibson L-5 in 1922?",
+        "type": "multiple_choice",
+        "options": ["Humbucker pickups", "F-holes replacing the round soundhole", "Bolt-on neck", "Nylon strings"],
+        "correct_answer": "F-holes replacing the round soundhole",
+        "explanation": "Lloyd Loar introduced f-holes (violin-style sound openings) on the Gibson L-5, along with a floating pickguard and adjustable bridge. The L-5 became the first guitar loud enough to be heard in a jazz ensemble, making it the instrument that enabled the guitar to become a solo voice in jazz."
+      },
+      {
+        "question": "Approximately how many guitars did John D'Angelico build in his career?",
+        "type": "multiple_choice",
+        "options": ["About 300", "About 1,164", "About 5,000", "About 10,000"],
+        "correct_answer": "About 1,164",
+        "explanation": "D'Angelico built approximately 1,164 numbered guitars between 1932 and 1964, all handmade in his small shop in Little Italy, New York. Each was individually crafted, making them highly prized collector's instruments worth $25,000 to over $100,000 today."
+      },
+      {
+        "question": "What was revolutionary about Leo Fender's approach to guitar construction?",
+        "type": "multiple_choice",
+        "options": ["Hand-carved arched tops", "Mass-producible modular design with bolt-on necks", "Using exotic tonewoods", "Developing the first nylon-string guitar"],
+        "correct_answer": "Mass-producible modular design with bolt-on necks",
+        "explanation": "Leo Fender, who never learned to play guitar, approached design from an engineer's perspective. His bolt-on necks, slab bodies, and modular components (interchangeable necks, bodies, pickguards) made guitars affordable to mass-produce and easy to repair. This democratized the electric guitar."
+      },
+      {
+        "question": "Which guitarist is credited with creating the role of the electric jazz guitar soloist?",
+        "type": "multiple_choice",
+        "options": ["Django Reinhardt", "Charlie Christian", "Wes Montgomery", "Joe Pass"],
+        "correct_answer": "Charlie Christian",
+        "explanation": "Charlie Christian (1916-1942) plugged a Gibson ES-150 into an amplifier and created the role of the electric jazz guitar soloist. His horn-like single-note lines over the Benny Goodman Orchestra proved that the guitar could solo alongside saxophones and trumpets. Despite dying at just 25, his influence is immeasurable."
+      }
+    ],
+    "created_by": "luthier_historian",
+    "time_limit_seconds": 300,
+    "tags": ["history", "luthiers", "intermediate"]
+  }
+]
