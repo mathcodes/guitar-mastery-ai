@@ -197,15 +197,22 @@ function closeMobileSidebar() {
 // Theme
 // ============================================================
 function initTheme() {
-    const saved = localStorage.getItem("gm-theme") || "dark";
-    document.documentElement.setAttribute("data-theme", saved);
+    let saved = null;
+    try { saved = localStorage.getItem("gm-theme"); } catch { /* storage blocked */ }
+    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    applyTheme(saved || (prefersLight ? "light" : "dark"));
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    dom.themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
 }
 
 function toggleTheme() {
     const current = document.documentElement.getAttribute("data-theme");
     const next = current === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("gm-theme", next);
+    applyTheme(next);
+    try { localStorage.setItem("gm-theme", next); } catch { /* storage blocked */ }
 }
 
 // ============================================================
@@ -311,15 +318,22 @@ async function sendMessage(overrideText) {
             payload.preferred_agent = state.selectedAgent;
         }
 
+        const headers = { "Content-Type": "application/json" };
+        const apiKey = getApiKey();
+        if (apiKey) headers["X-Anthropic-Api-Key"] = apiKey;
+
         const response = await fetch("/api/v1/chat", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers,
             body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
-            const err = await response.json();
-            throw new Error(err.detail || "Request failed");
+            let detail = "Request failed";
+            try { detail = (await response.json()).detail || detail; } catch { /* non-JSON error */ }
+            if (typeof detail !== "string") detail = "Request failed";
+            if (response.status === 401) detail += " Use the API key button to update it.";
+            throw new Error(detail);
         }
 
         const data = await response.json();
