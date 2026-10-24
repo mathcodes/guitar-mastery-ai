@@ -117,6 +117,17 @@ class ReadinessMiddleware(BaseHTTPMiddleware):
 
 app.add_middleware(ReadinessMiddleware)
 
+
+@app.exception_handler(404)
+async def not_found(request: Request, exc):
+    """HTML 404 page for browsers; JSON for API clients."""
+    from fastapi.responses import HTMLResponse, JSONResponse
+
+    wants_html = "text/html" in request.headers.get("accept", "") and not request.url.path.startswith("/api")
+    if wants_html and templates:
+        return templates.TemplateResponse(request, "404.html", {"app_name": settings.app_name}, status_code=404)
+    return JSONResponse({"detail": getattr(exc, "detail", "Not Found")}, status_code=404)
+
 # Static files and templates
 static_path = Path(__file__).parent / "frontend" / "static"
 template_path = Path(__file__).parent / "frontend" / "templates"
