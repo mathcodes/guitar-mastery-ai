@@ -22,6 +22,20 @@ from anthropic import AsyncAnthropic
 logger = structlog.get_logger("agents")
 
 
+def is_account_error(exc: BaseException) -> bool:
+    """True for errors caused by the API key or account, not by the request."""
+    import anthropic
+
+    return isinstance(
+        exc,
+        (
+            anthropic.AuthenticationError,
+            anthropic.PermissionDeniedError,
+            anthropic.RateLimitError,
+        ),
+    )
+
+
 # ============================================================
 # Data Classes
 # ============================================================
@@ -88,7 +102,7 @@ class BaseAgent(ABC):
         name: str,
         role: str,
         system_prompt: str,
-        model: str = "claude-sonnet-4-20250514",
+        model: str | None = None,
         temperature: float = 0.5,
         max_tokens: int = 2000,
         knowledge_base_path: str | None = None,
@@ -97,6 +111,9 @@ class BaseAgent(ABC):
         self.name = name
         self.role = role
         self.system_prompt = system_prompt
+        if model is None:
+            from config.settings import settings
+            model = settings.default_model
         self.model = model
         self.temperature = temperature
         self.max_tokens = max_tokens
@@ -187,7 +204,6 @@ class BaseAgent(ABC):
             api_kwargs = {
                 "model": self.model,
                 "max_tokens": self.max_tokens,
-                "temperature": self.temperature,
                 "system": self._build_system_message(context),
                 "messages": messages,
             }
@@ -238,7 +254,6 @@ class BaseAgent(ABC):
                 next_kwargs = {
                     "model": self.model,
                     "max_tokens": self.max_tokens,
-                    "temperature": self.temperature,
                     "system": self._build_system_message(context),
                     "messages": messages,
                 }
@@ -280,6 +295,9 @@ class BaseAgent(ABC):
             )
 
         except Exception as e:
+            if is_account_error(e):
+                # Key/quota problems are the caller's to report, not something to paper over
+                raise
             latency_ms = int((time.time() - start_time) * 1000)
             logger.error("agent_error", agent=self.name, error=str(e))
 

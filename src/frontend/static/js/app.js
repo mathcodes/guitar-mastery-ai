@@ -36,7 +36,72 @@ const dom = {
     themeToggle: $("#themeToggle"),
     newSessionBtn: $("#newSessionBtn"),
     skillLevel: $("#skillLevel"),
+    apiKeyBtn: $("#apiKeyBtn"),
+    apiKeyBtnText: $("#apiKeyBtnText"),
+    apiKeyDialog: $("#apiKeyDialog"),
+    apiKeyForm: $("#apiKeyForm"),
+    apiKeyInput: $("#apiKeyInput"),
+    apiKeyError: $("#apiKeyError"),
+    apiKeyRemove: $("#apiKeyRemove"),
+    apiKeyCancel: $("#apiKeyCancel"),
 };
+
+// ============================================================
+// Bring-your-own API key (kept only in this browser)
+// ============================================================
+const KEY_STORAGE = "gm-anthropic-key";
+let memoryKey = ""; // fallback when storage is unavailable (private mode)
+
+function getApiKey() {
+    try { return localStorage.getItem(KEY_STORAGE) || memoryKey; } catch { return memoryKey; }
+}
+
+function setApiKey(value) {
+    memoryKey = value || "";
+    try {
+        if (value) localStorage.setItem(KEY_STORAGE, value);
+        else localStorage.removeItem(KEY_STORAGE);
+    } catch { /* storage blocked: keep in memory for this tab */ }
+    renderKeyState();
+}
+
+function renderKeyState() {
+    const has = Boolean(getApiKey());
+    dom.apiKeyBtn.classList.toggle("has-key", has);
+    dom.apiKeyBtnText.textContent = has ? "API key added" : "Add API key";
+    dom.apiKeyRemove.hidden = !has;
+}
+
+function openKeyDialog() {
+    dom.apiKeyError.textContent = "";
+    dom.apiKeyInput.value = getApiKey();
+    dom.apiKeyDialog.showModal();
+    dom.apiKeyInput.focus();
+}
+
+function bindKeyDialog() {
+    dom.apiKeyBtn.addEventListener("click", openKeyDialog);
+    dom.apiKeyCancel.addEventListener("click", () => dom.apiKeyDialog.close());
+    dom.apiKeyRemove.addEventListener("click", () => {
+        setApiKey("");
+        dom.apiKeyDialog.close();
+        dom.apiKeyBtn.focus();
+    });
+    dom.apiKeyForm.addEventListener("submit", (e) => {
+        const value = dom.apiKeyInput.value.trim();
+        if (!value.startsWith("sk-ant-")) {
+            e.preventDefault();
+            dom.apiKeyError.textContent = "Anthropic API keys start with sk-ant-. Check the key and try again.";
+            dom.apiKeyInput.setAttribute("aria-invalid", "true");
+            dom.apiKeyInput.focus();
+            return;
+        }
+        dom.apiKeyInput.removeAttribute("aria-invalid");
+        setApiKey(value);
+    });
+    dom.apiKeyDialog.addEventListener("close", () => dom.apiKeyBtn.focus());
+    renderKeyState();
+}
 
 // ============================================================
 // Agent Metadata
@@ -55,13 +120,33 @@ const AGENT_META = {
 document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     bindEvents();
-    dom.messageInput.focus();
+    bindKeyDialog();
 });
 
 function bindEvents() {
     // Sidebar
     dom.sidebarToggle.addEventListener("click", toggleSidebar);
-    dom.menuBtn.addEventListener("click", () => dom.sidebar.classList.toggle("open"));
+    dom.menuBtn.addEventListener("click", () => {
+        if (window.innerWidth > 768) {
+            toggleSidebar();
+            return;
+        }
+        const open = dom.sidebar.classList.toggle("open");
+        dom.menuBtn.setAttribute("aria-expanded", String(open));
+        dom.menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        if (open) dom.sidebar.querySelector("button")?.focus();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && dom.sidebar.classList.contains("open")) {
+            closeMobileSidebar();
+            dom.menuBtn.focus();
+        }
+    });
+    // Suggestion chips (event delegation; no inline handlers)
+    dom.messages.addEventListener("click", (e) => {
+        const btn = e.target.closest(".suggestion-btn");
+        if (btn) sendMessage(btn.dataset.prompt);
+    });
 
     // Theme
     dom.themeToggle.addEventListener("click", toggleTheme);
@@ -97,9 +182,15 @@ function bindEvents() {
             !dom.sidebar.contains(e.target) &&
             e.target !== dom.menuBtn
         ) {
-            dom.sidebar.classList.remove("open");
+            closeMobileSidebar();
         }
     });
+}
+
+function closeMobileSidebar() {
+    dom.sidebar.classList.remove("open");
+    dom.menuBtn.setAttribute("aria-expanded", "false");
+    dom.menuBtn.setAttribute("aria-label", "Open menu");
 }
 
 // ============================================================
@@ -121,14 +212,21 @@ function toggleTheme() {
 // Sidebar
 // ============================================================
 function toggleSidebar() {
-    dom.sidebar.classList.toggle("collapsed");
+    const collapsed = dom.sidebar.classList.toggle("collapsed");
+    document.body.classList.toggle("sidebar-collapsed", collapsed);
+    dom.sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
+    dom.menuBtn.setAttribute("aria-expanded", String(!collapsed));
+    if (collapsed) dom.menuBtn.focus();
+    else dom.sidebarToggle.focus();
 }
 
 function selectAgent(agentName) {
     state.selectedAgent = agentName;
 
     $$(".agent-card").forEach((card) => {
-        card.classList.toggle("active", card.dataset.agent === agentName);
+        const active = card.dataset.agent === agentName;
+        card.classList.toggle("active", active);
+        card.setAttribute("aria-pressed", String(active));
     });
 
     const meta = AGENT_META[agentName] || AGENT_META.auto;
@@ -136,7 +234,7 @@ function selectAgent(agentName) {
 
     // Close mobile sidebar
     if (window.innerWidth <= 768) {
-        dom.sidebar.classList.remove("open");
+        closeMobileSidebar();
     }
 }
 
@@ -258,13 +356,13 @@ function addMessage(type, text) {
     const isUser = type === "user";
 
     el.innerHTML = `
-        <div class="message-avatar">${isUser ? "👤" : "❌"}</div>
+        <div class="message-avatar" aria-hidden="true">${isUser ? "👤" : "❌"}</div>
         <div class="message-body">
             <div class="message-header">
                 <span class="message-sender">${isUser ? "You" : "System"}</span>
                 <span class="message-time">${formatTime()}</span>
             </div>
-            <div class="message-content">${isUser ? escapeHtml(text) : text}</div>
+            <div class="message-content">${escapeHtml(text)}</div>
         </div>
     `;
 
@@ -304,7 +402,7 @@ function addAgentMessage(data) {
     let suggestionsHtml = "";
     if (data.suggestions && data.suggestions.length > 0) {
         suggestionsHtml = `<div class="message-suggestions">
-            ${data.suggestions.map((s) => `<button class="suggestion-btn" onclick="sendMessage('${escapeAttr(s)}')">${escapeHtml(s)}</button>`).join("")}
+            ${data.suggestions.map((s) => `<button type="button" class="suggestion-btn" data-prompt="${escapeAttr(s)}">${escapeHtml(s)}</button>`).join("")}
         </div>`;
     }
 
@@ -315,7 +413,7 @@ function addAgentMessage(data) {
     }
 
     el.innerHTML = `
-        <div class="message-avatar">${meta.icon}</div>
+        <div class="message-avatar" aria-hidden="true">${meta.icon}</div>
         <div class="message-body">
             <div class="message-header">
                 <span class="message-sender">${meta.name}</span>
@@ -391,9 +489,10 @@ function showTyping() {
     const meta = AGENT_META[agent];
 
     el.innerHTML = `
-        <div class="message-avatar">${meta.icon}</div>
+        <div class="message-avatar" aria-hidden="true">${meta.icon}</div>
         <div class="message-body">
-            <div class="typing-dots">
+            <span class="sr-only">${meta.name} is thinking…</span>
+            <div class="typing-dots" aria-hidden="true">
                 <span></span><span></span><span></span>
             </div>
         </div>
@@ -476,7 +575,12 @@ function escapeHtml(str) {
 }
 
 function escapeAttr(str) {
-    return str.replace(/'/g, "\\'").replace(/"/g, "&quot;");
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
 }
 
 function formatKey(key) {

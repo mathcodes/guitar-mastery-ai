@@ -8,10 +8,12 @@ Multi-agent AI application for guitar education, covering:
 - Practice tracking and plateau-busting
 """
 
+import asyncio
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI, Request
+from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -23,7 +25,7 @@ from src.db.connection import init_db, async_session
 logger = structlog.get_logger("main")
 
 
-def _create_agents(db_factory):
+def _create_agents(db_factory, api_key: str):
     """Instantiate all specialized agents with their DB session factory."""
     from anthropic import AsyncAnthropic
     from src.agents.luthier import LuthierHistorianAgent
@@ -31,8 +33,7 @@ def _create_agents(db_factory):
     from src.agents.sql_expert import SQLExpertAgent
     from src.agents.dev_pm import DevPMAgent
 
-    # Create a shared Anthropic client with the API key from settings
-    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    client = AsyncAnthropic(api_key=api_key)
 
     return {
         "luthier_historian": LuthierHistorianAgent(db_session_factory=db_factory, client=client),
@@ -42,29 +43,54 @@ def _create_agents(db_factory):
     }
 
 
+def build_coordinator(api_key: str):
+    """Build an orchestrator bound to one Anthropic API key.
+
+    The public demo is bring-your-own-key: each request can carry the
+    visitor's key, so a coordinator is built per key and never stored.
+    """
+    from src.orchestrator.coordinator import AgentCoordinator
+
+    return AgentCoordinator(agents=_create_agents(db_factory=async_session, api_key=api_key))
+
+
+_ready = False
+_ready_lock = asyncio.Lock()
+
+
+async def ensure_ready():
+    """Create tables and load seed data once per process.
+
+    Runs from the lifespan hook and again lazily on the first request, because
+    serverless platforms do not always deliver ASGI lifespan events.
+    """
+    global _ready
+    if _ready:
+        return
+    async with _ready_lock:
+        if _ready:
+            return
+        await init_db()
+        from src.db.seed import seed_all
+
+        await seed_all()
+        _ready = True
+        logger.info("database_ready")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown lifecycle."""
-    # Startup
     logger.info("starting_application", version=settings.app_version)
-    await init_db()
-    logger.info("database_initialized")
+    await ensure_ready()
 
-    # Initialize agents and orchestrator
-    if settings.anthropic_api_key:
-        from src.orchestrator.coordinator import AgentCoordinator
-
-        agents = _create_agents(db_factory=async_session)
-        coordinator = AgentCoordinator(agents=agents)
-        app.state.coordinator = coordinator
-        logger.info("agents_initialized", agents=list(agents.keys()))
-    else:
-        app.state.coordinator = None
-        logger.warning("no_api_key", msg="ANTHROPIC_API_KEY not set — agents in routing-only mode")
+    # Optional server-side key (local development). The hosted demo leaves it unset.
+    app.state.coordinator = build_coordinator(settings.anthropic_api_key) if settings.anthropic_api_key else None
+    if app.state.coordinator is None:
+        logger.info("byok_mode", msg="No server ANTHROPIC_API_KEY; visitors supply their own key")
 
     yield
 
-    # Shutdown
     logger.info("shutting_down_application")
 
 
@@ -75,6 +101,17 @@ app = FastAPI(
     description="Multi-agent AI application for guitar mastery — history, theory, technique, and practice",
     lifespan=lifespan,
 )
+
+class ReadinessMiddleware(BaseHTTPMiddleware):
+    """Guarantee the database is initialised before any API request."""
+
+    async def dispatch(self, request, call_next):
+        if request.url.path.startswith("/api"):
+            await ensure_ready()
+        return await call_next(request)
+
+
+app.add_middleware(ReadinessMiddleware)
 
 # Static files and templates
 static_path = Path(__file__).parent / "frontend" / "static"
@@ -104,11 +141,11 @@ if static_path.exists():
 async def root(request: Request):
     """Serve the Guitar Mastery AI web interface."""
     if templates:
-        return templates.TemplateResponse("index.html", {
-            "request": request,
-            "app_name": settings.app_name,
-            "version": settings.app_version,
-        })
+        return templates.TemplateResponse(
+            request,
+            "index.html",
+            {"app_name": settings.app_name, "version": settings.app_version},
+        )
     return {
         "app": settings.app_name,
         "version": settings.app_version,

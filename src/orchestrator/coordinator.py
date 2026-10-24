@@ -147,6 +147,10 @@ class AgentCoordinator:
             )
 
         except Exception as e:
+            from src.agents.base import is_account_error
+
+            if is_account_error(e):
+                raise
             logger.error("agent_execution_error", agent=routing.agent_name, error=str(e))
             return OrchestratorResponse(
                 content="I encountered an error processing your request. Please try again.",
@@ -187,6 +191,12 @@ class AgentCoordinator:
                 )
 
         results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        from src.agents.base import is_account_error
+
+        for result in results:
+            if isinstance(result, Exception) and is_account_error(result):
+                raise result
 
         # Aggregate results
         contents = []

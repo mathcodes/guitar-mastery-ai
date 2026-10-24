@@ -69,7 +69,17 @@ async def chat(request: ChatRequest, http_request: Request):
     - SQL Expert: database queries about the knowledge base
     - Dev/PM: system status, benchmarks, documentation
     """
-    coordinator = getattr(http_request.app.state, "coordinator", None)
+    # Bring-your-own-key: a visitor's key arrives per request and is used only
+    # for this call. It is never logged, stored, or returned.
+    visitor_key = (http_request.headers.get("x-anthropic-api-key") or "").strip()
+    if visitor_key:
+        if not visitor_key.startswith("sk-ant-") or len(visitor_key) > 300:
+            raise HTTPException(status_code=400, detail="That doesn't look like an Anthropic API key (it should start with sk-ant-).")
+        from src.main import build_coordinator
+
+        coordinator = build_coordinator(visitor_key)
+    else:
+        coordinator = getattr(http_request.app.state, "coordinator", None)
 
     # Create or restore context
     ctx_kwargs = {
@@ -106,20 +116,29 @@ async def chat(request: ChatRequest, http_request: Request):
                 },
             )
         except Exception as e:
-            logger.error("chat_error", error=str(e))
-            raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}")
+            from anthropic import AuthenticationError, PermissionDeniedError, RateLimitError
+
+            if isinstance(e, AuthenticationError):
+                raise HTTPException(status_code=401, detail="Anthropic rejected that API key. Check it and try again.")
+            if isinstance(e, PermissionDeniedError):
+                raise HTTPException(status_code=403, detail="That API key doesn't have access to the model this app uses.")
+            if isinstance(e, RateLimitError):
+                raise HTTPException(status_code=429, detail="Your Anthropic account is rate-limited right now. Wait a moment and retry.")
+            logger.error("chat_error", error_type=type(e).__name__)
+            raise HTTPException(status_code=502, detail="The agent couldn't complete that request. Please try again.")
 
     # Fallback: routing-only mode (no API key configured)
     routing = classify_intent(request.message)
     return ChatResponse(
-        message=f"[Routed to: {routing.agent_name}] Your question about "
-                f"'{request.message[:100]}' would be handled by the "
-                f"{routing.agent_name} agent. Configure your ANTHROPIC_API_KEY "
-                f"in .env to enable full agent responses.",
+        message=f"**Routing preview:** this question would go to the "
+                f"**{routing.agent_name.replace('_', ' ')}** agent "
+                f"({round(routing.confidence * 100)}% confidence).\n\n"
+                f"To get a full answer, add your Anthropic API key with the "
+                f"**API key** button at the top of the page. The key stays in your browser "
+                f"and is only used to call Claude for your own questions.",
         agent_used=routing.agent_name,
         session_id=context.session_id,
         suggestions=[
-            "Configure ANTHROPIC_API_KEY in .env for full responses",
             "Try: What scales work over a dominant 7th chord?",
             "Try: Tell me about the history of the Les Paul",
             "Try: Show me all jazz chords with difficulty 3+",

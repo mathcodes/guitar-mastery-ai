@@ -57,6 +57,8 @@ DATA_QUERY_PATTERNS = [
     r"\b(database|query|data|records|entries)\b",
     r"\b(filter|sort|between|greater than|less than)\b",
     r"\b(difficulty \d|category|type)\b",
+    # Messages that open with a retrieval verb are lookups, even when they mention theory terms
+    r"^(list|show|how many|find|count|which|display)\b",
 ]
 
 HISTORY_PATTERNS = [
