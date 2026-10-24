@@ -2,11 +2,15 @@
 
 A multi-agent AI application for comprehensive guitar education — covering history, construction, jazz theory, technique, improvisation, and interactive practice.
 
+**Live demo:** [guitar-mastery-ai.vercel.app](https://guitar-mastery-ai.vercel.app) · **API reference:** [/docs](https://guitar-mastery-ai.vercel.app/docs)
+
+The hosted demo is bring-your-own-key: add your Anthropic API key with the **Add API key** button. It stays in your browser and is sent only with your own requests. Without a key you get a routing preview showing which agent would answer.
+
 ## Quick Start
 
 ```bash
 # 1. Clone and enter project
-cd today_agent
+cd guitar-mastery-ai
 
 # 2. Create virtual environment
 python -m venv .venv

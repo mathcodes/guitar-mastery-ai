@@ -100,6 +100,10 @@ app = FastAPI(
     version=settings.app_version,
     description="Multi-agent AI application for guitar mastery — history, theory, technique, and practice",
     lifespan=lifespan,
+    # The stock Swagger UI fails WCAG 2.2 AA (contrast, nested controls, no lang);
+    # /docs serves an accessible reference generated from the same OpenAPI schema.
+    docs_url=None,
+    redoc_url=None,
 )
 
 class ReadinessMiddleware(BaseHTTPMiddleware):
@@ -137,7 +141,7 @@ if static_path.exists():
 # ============================================================
 # Root endpoint — serves the UI
 # ============================================================
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def root(request: Request):
     """Serve the Guitar Mastery AI web interface."""
     if templates:
@@ -152,6 +156,51 @@ async def root(request: Request):
         "docs": "/docs",
         "ui": "Frontend templates not found. Ensure src/frontend/templates/ exists.",
     }
+
+
+def _schema_fields(schema: dict, components: dict) -> list[dict]:
+    """Flatten a request-body schema into rows for the docs table."""
+    ref = schema.get("$ref", "")
+    if ref:
+        schema = components.get(ref.split("/")[-1], {})
+    required = set(schema.get("required", []))
+    rows = []
+    for name, prop in schema.get("properties", {}).items():
+        kind = prop.get("type") or "/".join(
+            p.get("type", "object") for p in prop.get("anyOf", []) if p.get("type") != "null"
+        ) or "object"
+        rows.append({
+            "name": name,
+            "type": kind,
+            "required": name in required,
+            "description": prop.get("description", ""),
+        })
+    return rows
+
+
+@app.get("/docs", include_in_schema=False)
+async def api_docs(request: Request):
+    """Accessible API reference built from the OpenAPI schema."""
+    spec = app.openapi()
+    components = spec.get("components", {}).get("schemas", {})
+    endpoints = []
+    for path, methods in spec.get("paths", {}).items():
+        for method, op in methods.items():
+            body = op.get("requestBody", {}).get("content", {}).get("application/json", {}).get("schema")
+            endpoints.append({
+                "method": method.upper(),
+                "path": path,
+                "summary": op.get("summary", ""),
+                "description": (op.get("description") or "").strip(),
+                "tag": (op.get("tags") or ["general"])[0],
+                "fields": _schema_fields(body, components) if body else [],
+                "id": f"{method}-{path}".replace("/", "-").strip("-"),
+            })
+    return templates.TemplateResponse(
+        request,
+        "docs.html",
+        {"spec": spec, "endpoints": endpoints, "app_name": settings.app_name, "version": settings.app_version},
+    )
 
 
 @app.get("/api")

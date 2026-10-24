@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API reference · {{ app_name }}</title>
+    <meta name="description" content="REST API reference for {{ app_name }}: endpoints, request fields, and example requests.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8E%B8%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/docs.css">
+    <script>
+        try {
+            const t = localStorage.getItem("gm-theme");
+            const light = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+            document.documentElement.setAttribute("data-theme", t || (light ? "light" : "dark"));
+        } catch (e) { /* storage blocked */ }
+    </script>
+</head>
+<body class="docs-body">
+    <a class="skip-link" href="#endpoints">Skip to endpoints</a>
+    <header class="docs-header">
+        <p class="docs-eyebrow"><a href="/">← Back to {{ app_name }}</a></p>
+        <h1>API reference</h1>
+        <p>{{ spec.info.description }}. Version {{ version }}. Machine-readable schema:
+            <a href="/openapi.json">openapi.json</a>.</p>
+        <p>Chat requests run on your own Anthropic key: send it in the
+            <code>X-Anthropic-Api-Key</code> header. Without a key the API returns a routing preview.</p>
+    </header>
+
+    <nav class="docs-toc" aria-label="Endpoints">
+        <ul>
+            {% for e in endpoints %}
+            <li><a href="#{{ e.id }}"><span class="method method-{{ e.method|lower }}">{{ e.method }}</span> {{ e.path }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <main id="endpoints" class="docs-main" tabindex="-1">
+        {% for e in endpoints %}
+        <section class="endpoint" id="{{ e.id }}" aria-labelledby="{{ e.id }}-title">
+            <h2 id="{{ e.id }}-title"><span class="method method-{{ e.method|lower }}">{{ e.method }}</span> <code>{{ e.path }}</code></h2>
+            {% if e.summary %}<p class="endpoint-summary">{{ e.summary }}</p>{% endif %}
+            {% if e.description %}<pre class="endpoint-desc">{{ e.description }}</pre>{% endif %}
+            {% if e.fields %}
+            <div class="table-scroll" role="region" aria-label="{{ e.method }} {{ e.path }} request fields" tabindex="0">
+                <table>
+                    <caption>Request body (JSON)</caption>
+                    <thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Description</th></tr></thead>
+                    <tbody>
+                        {% for f in e.fields %}
+                        <tr><th scope="row"><code>{{ f.name }}</code></th><td>{{ f.type }}</td><td>{{ "Yes" if f.required else "No" }}</td><td>{{ f.description }}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            <details>
+                <summary>Example request</summary>
+<pre><code>curl -X {{ e.method }} https://guitar-mastery-ai.vercel.app{{ e.path }}{% if e.method == "POST" %} \
+  -H "Content-Type: application/json" \
+  -H "X-Anthropic-Api-Key: $ANTHROPIC_API_KEY" \
+  -d '{"message": "What scales work over a Dm7 chord?"}'{% endif %}</code></pre>
+            </details>
+        </section>
+        {% endfor %}
+    </main>
+</body>
+</html>
