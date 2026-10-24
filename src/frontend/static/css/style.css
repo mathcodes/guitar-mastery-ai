@@ -89,6 +89,12 @@
     --accent-text: #5a4bd4;
     --accent-strong: #5a4bd4;
 
+    /* status colors darkened for light surfaces (all >= 4.5:1 on #f0f1f5) */
+    --green: #15803d;
+    --amber: #8a5300;
+    --red: #b91c1c;
+    --blue: #1d4ed8;
+
     --border: #e2e4ec;
     --border-light: #f0f1f5;
     --border-accent: rgba(108, 92, 231, 0.3);
